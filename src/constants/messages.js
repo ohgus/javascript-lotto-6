@@ -3,3 +3,7 @@ export const INPUT = Object.freeze({
   winningNumbers: `${"\n"}당첨 번호를 입력해 주세요.${"\n"}`,
   bonusNumber: `${"\n"}보너스 번호를 입력해 주세요.${"\n"}`,
 });
+
+export const ERROR = Object.freeze({
+  purchase: "[ERROR] 구입 금액은 천원 단위의 숫자로 입력해 주세요.",
+});
