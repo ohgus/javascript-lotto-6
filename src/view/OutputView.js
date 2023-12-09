@@ -5,4 +5,12 @@ const OutputView = {
   printLottoQuantity(quantity) {
     Console.print(`${"\n"}${quantity}${OUTPUT.quantity}`);
   },
+
+  printAllLotto(allLotto) {
+    for (let lotto of allLotto) {
+      Console.print(lotto);
+    }
+  },
 };
+
+export default OutputView;
