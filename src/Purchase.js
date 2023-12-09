@@ -1,7 +1,7 @@
 import { OPTION } from "./constants/lottoOption.js";
 import { ERROR } from "./constants/messages.js";
 
-class Customer {
+class Purchase {
   #purchaseMoney;
 
   constructor(purchaseMoney) {
@@ -26,4 +26,4 @@ class Customer {
   }
 }
 
-export default Customer;
+export default Purchase;
