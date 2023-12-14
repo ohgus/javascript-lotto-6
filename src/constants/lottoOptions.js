@@ -1,5 +1,5 @@
 export const LOTTO_OPTIONS = Object.freeze({
-  regex: /^(?:[1-9]|10|20|30|40|45)$/,
+  regex: /^(?:[1-9]|[1-3][0-9]|40|4[1-5])$/,
   coinRegex: /^\d+$/,
   length: 6,
   spliter: ",",
