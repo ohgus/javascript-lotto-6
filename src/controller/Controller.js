@@ -38,9 +38,20 @@ class Controller {
     try {
       const numbers = await InputView.numbers();
       this.#lotto = new Lotto(numbers);
+      return await this.#readBonusNumber();
     } catch (error) {
       OutputView.error(error.message);
       return await this.#readLottoNumber();
+    }
+  }
+
+  async #readBonusNumber() {
+    try {
+      const number = await InputView.bonusNumber();
+      this.#bonus = new Bonus(number, this.#lotto.getLottoNumbers());
+    } catch (error) {
+      OutputView.error(error.message);
+      return await this.#readBonusNumber();
     }
   }
 }
