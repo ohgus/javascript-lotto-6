@@ -5,6 +5,8 @@ import Store from "../model/Store.js";
 import LottoMachine from "../model/LottoMachine.js";
 import Bonus from "../model/Bonus.js";
 
+import { RANK_INDEX, PRIZE } from "../constants/lottoOptions.js";
+
 class Controller {
   #lotto;
   #store;
@@ -53,6 +55,7 @@ class Controller {
         this.#machine.getUserLottos(),
         this.#bonus.getBonusNumber()
       );
+      return this.#printResult(this.#result);
     } catch (error) {
       OutputView.error(error.message);
       return await this.#readBonusNumber();
@@ -87,6 +90,25 @@ class Controller {
       return true;
     }
     return false;
+  }
+
+  #printResult(result) {
+    const coins = this.#store.getCoins();
+    const totalPrize = this.#calculatePrize(result);
+    const profitRate = this.#calculateProfitRate(coins, totalPrize);
+  }
+
+  #calculatePrize(result) {
+    let prize = 0;
+    result.forEach((number, index) => {
+      prize += number * PRIZE[RANK_INDEX[index]];
+    });
+    return prize;
+  }
+
+  #calculateProfitRate(coins, prize) {
+    const temp = (prize / coins) * 100;
+    return (Math.round(temp * 10) / 10).toFixed(1);
   }
 }
 
