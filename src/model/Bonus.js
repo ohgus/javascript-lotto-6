@@ -18,6 +18,10 @@ class Bonus {
       throw new Error(`${ERROR.title} ${ERROR.message.duplicate}`);
     }
   }
+
+  getBonusNumber() {
+    return this.#bonusNumber;
+  }
 }
 
 export default Bonus;
