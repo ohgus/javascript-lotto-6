@@ -18,6 +18,10 @@ class Lotto {
       throw new Error(`${ERROR.title} ${ERROR.message.duplicate}`);
     }
   }
+
+  getLottoNumbers() {
+    return this.#numbers;
+  }
 }
 
 export default Lotto;
