@@ -96,6 +96,7 @@ class Controller {
     const coins = this.#store.getCoins();
     const totalPrize = this.#calculatePrize(result);
     const profitRate = this.#calculateProfitRate(coins, totalPrize);
+    OutputView.result(result, profitRate);
   }
 
   #calculatePrize(result) {

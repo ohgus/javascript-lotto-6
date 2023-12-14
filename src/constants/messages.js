@@ -20,4 +20,12 @@ export const READ = Object.freeze({
 export const PRINT = Object.freeze({
   quantity: (quantity) => `\n${quantity}개를 구매했습니다.`,
   userLotto: (lotto) => `[${lotto.join(", ")}]`,
+  statistics: "\n당첨 통계",
+  lineSplit: "---",
+  fifth: (input) => `3개 일치 (5,000원) - ${input}개`,
+  fourth: (input) => `4개 일치 (50,000원) - ${input}개`,
+  third: (input) => `5개 일치 (1,500,000원) - ${input}개`,
+  second: (input) => `5개 일치, 보너스 볼 일치 (30,000,000원) - ${input}개`,
+  first: (input) => `6개 일치 (2,000,000,000원) - ${input}개`,
+  profitRate: (input) => `총 수익률은 ${input}%입니다.`,
 });
