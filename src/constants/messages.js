@@ -10,3 +10,7 @@ export const ERROR = Object.freeze({
       "당첨 번호, 보너스 번호는 1~45사이의 번호만 입력할 수 있습니다. 다시 입력해주세요.",
   },
 });
+
+export const READ = Object.freeze({
+  coins: "구입금액을 입력해 주세요.\n",
+});
