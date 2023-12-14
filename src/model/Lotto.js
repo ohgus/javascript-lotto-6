@@ -17,6 +17,12 @@ class Lotto {
     } else if (new Set(numbers).size !== LOTTO_OPTIONS.length) {
       throw new Error(`${ERROR.title} ${ERROR.message.duplicate}`);
     }
+
+    numbers.forEach((number) => {
+      if (!LOTTO_OPTIONS.regex.test(number)) {
+        throw new Error(`${ERROR.title} ${ERROR.message.range}`);
+      }
+    });
   }
 
   getLottoNumbers() {
