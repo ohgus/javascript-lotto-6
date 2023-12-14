@@ -22,4 +22,8 @@ class LottoMachine {
     }
     return lottos;
   }
+
+  getUserLottos() {
+    return this.#userLottos;
+  }
 }
