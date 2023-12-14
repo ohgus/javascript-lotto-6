@@ -27,9 +27,20 @@ class Controller {
       this.#store = new Store(coins);
       this.#machine = new LottoMachine(this.#store.getCoins());
       OutputView.userLottos(this.#machine.getUserLottos());
+      return await this.#readLottoNumber();
     } catch (error) {
       OutputView.error(error.message);
       return await this.#readCoins();
+    }
+  }
+
+  async #readLottoNumber() {
+    try {
+      const numbers = await InputView.numbers();
+      this.#lotto = new Lotto(numbers);
+    } catch (error) {
+      OutputView.error(error.message);
+      return await this.#readLottoNumber();
     }
   }
 }
