@@ -13,4 +13,5 @@ export const ERROR = Object.freeze({
 
 export const READ = Object.freeze({
   coins: "구입금액을 입력해 주세요.\n",
+  numbers: "\n당첨 번호를 입력해 주세요.\n",
 });

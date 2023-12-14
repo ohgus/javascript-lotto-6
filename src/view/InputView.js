@@ -6,6 +6,11 @@ const InputView = {
     const input = await Console.readLineAsync(READ.coins);
     return input;
   },
+
+  async numbers() {
+    const input = await Console.readLineAsync(READ.numbers);
+    return input;
+  },
 };
 
 export default InputView;
