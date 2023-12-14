@@ -9,6 +9,10 @@ const OutputView = {
       Console.print(PRINT.userLotto(lotto));
     });
   },
+
+  error(errorMessage) {
+    Console.print(errorMessage);
+  },
 };
 
 export default OutputView;
