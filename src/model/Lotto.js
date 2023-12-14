@@ -6,11 +6,11 @@ class Lotto {
 
   constructor(input) {
     this.#validate(input);
-    this.#numbers = input.split(LOTTO_OPTIONS.spliter).map(Number);
+    this.#numbers = input;
   }
 
   #validate(input) {
-    const numbers = input.split(LOTTO_OPTIONS.spliter);
+    const numbers = input;
 
     if (numbers.length !== LOTTO_OPTIONS.length) {
       throw new Error(`${ERROR.title} ${ERROR.message.length}`);

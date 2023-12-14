@@ -5,6 +5,7 @@ import Store from "../model/Store.js";
 import LottoMachine from "../model/LottoMachine.js";
 import Bonus from "../model/Bonus.js";
 
+import { LOTTO_OPTIONS } from "../constants/lottoOptions.js";
 import { RANK_INDEX, PRIZE } from "../constants/lottoOptions.js";
 
 class Controller {
@@ -38,7 +39,7 @@ class Controller {
   async #readLottoNumber() {
     try {
       const numbers = await InputView.numbers();
-      this.#lotto = new Lotto(numbers);
+      this.#lotto = new Lotto(numbers.split(LOTTO_OPTIONS.spliter).map(Number));
       return await this.#readBonusNumber();
     } catch (error) {
       OutputView.error(error.message);
