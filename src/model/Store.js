@@ -20,4 +20,8 @@ class Store {
       throw new Error(`${ERROR.title} ${ERROR.message.unit}`);
     }
   }
+
+  getCoins() {
+    return this.#coins;
+  }
 }
