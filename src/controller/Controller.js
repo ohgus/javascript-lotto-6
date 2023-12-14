@@ -49,10 +49,45 @@ class Controller {
     try {
       const number = await InputView.bonusNumber();
       this.#bonus = new Bonus(number, this.#lotto.getLottoNumbers());
+      this.#saveResult(
+        this.#lotto.getLottoNumbers(),
+        this.#machine.getUserLottos(),
+        this.#bonus.getBonusNumber()
+      );
     } catch (error) {
       OutputView.error(error.message);
       return await this.#readBonusNumber();
     }
+  }
+
+  #saveResult(lotto, userLottos, bonusNumber) {
+    userLottos.forEach((userLotto) => {
+      const matchCount = this.#calculateMathCount(userLotto, lotto);
+      const bonusMatch = this.#checkBonus(userLotto, bonusNumber);
+
+      if (matchCount === 3) this.#result[4] += 1;
+      else if (matchCount === 4) this.#result[3] += 1;
+      else if (matchCount === 5 && bonusMatch) this.#result[1] += 1;
+      else if (matchCount === 5) this.#result[2] += 1;
+      else if (matchCount === 6) this.#result[0] += 1;
+    });
+  }
+
+  #calculateMathCount(userLotto, lotto) {
+    let count = 0;
+    userLotto.forEach((number) => {
+      if (lotto.includes(number)) {
+        count += 1;
+      }
+    });
+    return count;
+  }
+
+  #checkBonus(userLotto, bonusNumber) {
+    if (userLotto.includes(bonusNumber)) {
+      return true;
+    }
+    return false;
   }
 }
 
