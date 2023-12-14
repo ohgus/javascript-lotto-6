@@ -25,3 +25,5 @@ class Store {
     return this.#coins;
   }
 }
+
+export default Store;
