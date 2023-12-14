@@ -7,7 +7,6 @@ import Bonus from "../model/Bonus.js";
 
 class Controller {
   #lotto;
-  #userLotto;
   #store;
   #machine;
   #bonus;
