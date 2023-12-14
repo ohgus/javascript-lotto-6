@@ -6,7 +6,7 @@ class Lotto {
 
   constructor(input) {
     this.#validate(input);
-    this.#numbers = input.split(LOTTO_OPTIONS.spliter);
+    this.#numbers = input.split(LOTTO_OPTIONS.spliter).map(Number);
   }
 
   #validate(input) {
