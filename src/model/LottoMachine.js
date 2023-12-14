@@ -27,3 +27,5 @@ class LottoMachine {
     return this.#userLottos;
   }
 }
+
+export default LottoMachine;
