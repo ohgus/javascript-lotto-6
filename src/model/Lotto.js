@@ -1,18 +1,23 @@
+import { LOTTO_OPTIONS } from "../constants/lottoOptions.js";
+import { ERROR } from "../constants/messages.js";
+
 class Lotto {
   #numbers;
 
-  constructor(numbers) {
-    this.#validate(numbers);
-    this.#numbers = numbers;
+  constructor(input) {
+    this.#validate(input);
+    this.#numbers = input;
   }
 
-  #validate(numbers) {
-    if (numbers.length !== 6) {
-      throw new Error("[ERROR] 로또 번호는 6개여야 합니다.");
+  #validate(input) {
+    const numbers = input.split(LOTTO_OPTIONS.spliter);
+
+    if (numbers.length !== LOTTO_OPTIONS.length) {
+      throw new Error(`${ERROR.title} ${ERROR.message.length}`);
+    } else if (new Set(numbers).size !== LOTTO_OPTIONS.length) {
+      throw new Error(`${ERROR.title} ${ERROR.message.duplicate}`);
     }
   }
-
-  // TODO: 추가 기능 구현
 }
 
 export default Lotto;
