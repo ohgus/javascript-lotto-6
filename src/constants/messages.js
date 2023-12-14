@@ -16,3 +16,8 @@ export const READ = Object.freeze({
   numbers: "\n당첨 번호를 입력해 주세요.\n",
   bonusNumber: "\n보너스 번호를 입력해 주세요.\n",
 });
+
+export const PRINT = Object.freeze({
+  quantity: (quantity) => `\n${quantity}개를 구매했습니다.`,
+  userLotto: (lotto) => `[${lotto.join(", ")}]`,
+});
